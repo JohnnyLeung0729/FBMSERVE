@@ -1,5 +1,5 @@
 **********************************************************************
-ToneChen AI technology
+<h1 style="color: red">ToneChen TAI technology</h1>
 
 搭建一套基于python、VUE、mysql架构的国际跨境供应链平台系统。
 其中包括OMS、WMS、TMS、FMS。
@@ -12,4 +12,4 @@ careat by 2021-05-12
 ***********************************************************************
 
 
-<img src="https://i.postimg.cc/26bssqBJ/We-Chat-Image-20211217014936.jpg">
+<img src="https://i.postimg.cc/26bssqBJ/We-Chat-Image-20211217014936.jpg" width="300px" height="300px">

@@ -1,3 +1,4 @@
+import hashlib
 import uuid
 
 from flask_sqlalchemy import SQLAlchemy

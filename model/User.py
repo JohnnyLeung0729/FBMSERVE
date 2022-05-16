@@ -1,4 +1,8 @@
 # coding: utf-8
+from datetime import datetime
+
+from sqlalchemy import DateTime
+
 from ext import db, get_uuid
 
 
@@ -7,8 +11,8 @@ class User(db.Model):
 
     id = db.Column(db.String(32), primary_key=True, default=get_uuid(), info='ID')
     department = db.Column(db.String(32), info='部门')
-    post = db.Column(db.JSON, info='岗位')
-    role = db.Column(db.JSON, info='角色')
+    post = db.Column(db.Text, info='岗位')
+    role = db.Column(db.Text, info='角色')
     account = db.Column(db.String(32), info='账号')
     pwd = db.Column(db.String(32), info='密码')
     email = db.Column(db.String(32), info='邮箱')
