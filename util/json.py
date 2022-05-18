@@ -26,3 +26,11 @@ def to_json(self):
         else:
             dic[c.name] = getattr(self, c.name)
     return dic
+
+
+def list_to_json(self):
+    lis = []
+    for c in self:
+        cct = to_json(c)
+        lis.append(cct)
+    return lis

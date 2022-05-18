@@ -5,6 +5,8 @@ from api.sku import sku as api_sku_blueprint
 from api.category import category as api_category_blueprint
 from api.user import user as api_user_blueprint
 from api.department import department as api_department_blueprint
+from api.post import post as api_post_blueprint
+from api.role import role as api_role_blueprint
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://root:Ly818379@localhost:3306/fbmtai"
@@ -14,8 +16,11 @@ app.register_blueprint(api_sku_blueprint)
 app.register_blueprint(api_category_blueprint)
 app.register_blueprint(api_user_blueprint)
 app.register_blueprint(api_department_blueprint)
+app.register_blueprint(api_post_blueprint)
+app.register_blueprint(api_role_blueprint)
 
 db.init_app(app)
+
 
 @app.route('/')
 def hello_world():  # put application's code here
