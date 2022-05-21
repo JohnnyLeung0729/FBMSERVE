@@ -1,15 +1,11 @@
 # coding: utf-8
-from flask_sqlalchemy import SQLAlchemy
-
-
-db = SQLAlchemy()
-
+from ext import db, get_uuid
 
 
 class Consumable(db.Model):
     __tablename__ = 'consumable'
 
-    id = db.Column(db.String(32), primary_key=True, info='ID')
+    id = db.Column(db.String(32), primary_key=True, default=get_uuid(), info='ID')
     name = db.Column(db.String(32), info='耗材名称')
     barcode = db.Column(db.String(64), info='耗材条码')
     material = db.Column(db.String(32), info='材质')
@@ -21,3 +17,9 @@ class Consumable(db.Model):
     memo = db.Column(db.String(255), info='说明')
     addtime = db.Column(db.DateTime, info='添加时间')
     adder = db.Column(db.String(32), info='添加人')
+
+    def __str__(self):
+        return self.name
+
+    def __repr__(self):
+        return self.id

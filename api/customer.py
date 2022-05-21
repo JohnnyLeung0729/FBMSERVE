@@ -1,64 +1,64 @@
 from flask import Blueprint, request
 from flask_restful import Api, Resource
 
-from model.Cuslevel import Cuslevel
+from model.Customer import Customer
 from util.json import to_json, list_to_json
 
-cuslevel = Blueprint('cuslevel', __name__, template_folder='views')
+customer = Blueprint('customer', __name__, template_folder='views')
 
-api = Api(cuslevel)
+api = Api(customer)
 
 
-class ListCuslevel(Resource):
+class ListCustomer(Resource):
     def get(self):
-        d = Cuslevel.query.all()
+        d = Customer.query.all()
         dd = list_to_json(d)
         return {'code': 200, 'msg': 'ok', 'success': 'ListDatadict', 'data': dd}
 
 
-api.add_resource(ListCuslevel, '/cuslevel/list')
+api.add_resource(ListCustomer, '/customer/list')
 
 
-class PagersCuslevel(Resource):
+class PagersCustomer(Resource):
     def get(self):
         ps = int(request.args.get('page_size'))
         po = int(request.args.get('page_one'))
         ofs = ps * (po - 1)
-        d = Cuslevel.query.offset(ofs).limit(ps).all()
+        d = Customer.query.offset(ofs).limit(ps).all()
         dd = list_to_json(d)
         return {'code': 200, 'msg': 'ok', 'success': 'PagersDatadict', 'data': dd}
 
 
-api.add_resource(PagersCuslevel, '/cuslevel/pagers')
+api.add_resource(PagersCustomer, '/customer/pagers')
 
 
-class LockCuslevel(Resource):
+class LockCustomer(Resource):
     def post(self):
         return {'code': 200, 'msg': 'ok', 'success': 'AddDepartment'}
 
 
-api.add_resource(LockCuslevel, '/cuslevel/lock')
+api.add_resource(LockCustomer, '/customer/lock')
 
 
-class DelCuslevel(Resource):
+class DelCustomer(Resource):
     def post(self):
         return {'code': 200, 'msg': 'ok', 'success': 'AddDepartment'}
 
 
-api.add_resource(DelCuslevel, '/cuslevel/del')
+api.add_resource(DelCustomer, '/customer/del')
 
 
-class AddCuslevel(Resource):
+class AddCustomer(Resource):
     def post(self):
         return {'code': 200, 'msg': 'ok', 'success': 'AddDepartment'}
 
 
-api.add_resource(AddCuslevel, '/cuslevel/add')
+api.add_resource(AddCustomer, '/customer/add')
 
 
-class EditCuslevel(Resource):
+class EditCustomer(Resource):
     def post(self):
         return {'code': 200, 'msg': 'ok', 'success': 'AddDepartment'}
 
 
-api.add_resource(EditCuslevel, '/cuslevel/edit')
+api.add_resource(EditCustomer, '/customer/edit')

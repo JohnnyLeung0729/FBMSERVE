@@ -3,7 +3,7 @@ from flask_restful import Api, Resource
 
 from ext import db
 from model.Department import Department
-from model.language import Language
+from model.Language import Language
 from util.json import to_json, list_to_json
 
 language = Blueprint('language', __name__, template_folder='views')

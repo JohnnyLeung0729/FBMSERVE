@@ -1,7 +1,7 @@
 from flask import Blueprint, request
 from flask_restful import Api, Resource
 
-from model.regional import Regional
+from model.Regional import Regional
 from util.json import to_json, list_to_json
 
 regional = Blueprint('regional', __name__, template_folder='views')

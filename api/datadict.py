@@ -1,9 +1,8 @@
 from flask import Blueprint, request
 from flask_restful import Api, Resource
 
-from ext import db
+from ext import db, get_datetime_now
 from model.Data_dict import DataDict
-from model.Department import Department
 from util.json import to_json, list_to_json
 
 datadict = Blueprint('datadict', __name__, template_folder='views')
@@ -52,6 +51,16 @@ api.add_resource(DelDatadict, '/datadict/del')
 
 class AddDatadict(Resource):
     def post(self):
+        di = request.get_json()
+        d = DataDict()
+        d.code = di['code']
+        d.name = di['name']
+        d.memo = di['memo']
+        d.pid = di['pid']
+        d.addtime = get_datetime_now()
+        print('pcodeis', di['pcode'])
+        db.session.add(d)
+        db.session.commit()
         return {'code': 200, 'msg': 'ok', 'success': 'AddDepartment'}
 
 

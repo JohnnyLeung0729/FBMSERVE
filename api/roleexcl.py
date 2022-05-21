@@ -1,7 +1,7 @@
 from flask import Blueprint, request
 from flask_restful import Api, Resource
 
-from model.role_excl import RoleExcl
+from model.Role_excl import RoleExcl
 from util.json import to_json, list_to_json
 
 roleexcl = Blueprint('roleexcl', __name__, template_folder='views')

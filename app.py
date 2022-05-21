@@ -16,6 +16,7 @@ from api.consumable import consumable as api_consumable_blueprint
 from api.cuslevel import cuslevel as api_cuslevel_blueprint
 from api.regional import regional as api_regional_blueprint
 from api.roleexcl import roleexcl as api_roleexcl_blueprint
+from api.customer import customer as api_customer_blueprint
 
 
 def JsonApp(app):
@@ -55,6 +56,7 @@ app.register_blueprint(api_consumable_blueprint)
 app.register_blueprint(api_cuslevel_blueprint)
 app.register_blueprint(api_regional_blueprint)
 app.register_blueprint(api_roleexcl_blueprint)
+app.register_blueprint(api_customer_blueprint)
 
 db.init_app(app)
 

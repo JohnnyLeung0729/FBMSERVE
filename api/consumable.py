@@ -1,7 +1,7 @@
 from flask import Blueprint, request
 from flask_restful import Api, Resource
 
-from model.consumable import Consumable
+from model.Consumable import Consumable
 from util.json import to_json, list_to_json
 
 consumable = Blueprint('consumable', __name__, template_folder='views')

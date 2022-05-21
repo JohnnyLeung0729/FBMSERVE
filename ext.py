@@ -1,5 +1,6 @@
 import hashlib
 import uuid
+from datetime import datetime
 
 from flask_sqlalchemy import SQLAlchemy
 
@@ -8,6 +9,11 @@ db = SQLAlchemy()
 
 def get_uuid():
     return uuid.uuid4().hex
+
+
+def get_datetime_now():
+    now = datetime.now()
+    return now.strftime('%Y-%m-%d %H:%M:%S')
 
 
 weight_units = [{'name': 'cm', 'value': 0}, {'name': 'ft', 'value': 1}, {'name': 'in', 'value': 2},

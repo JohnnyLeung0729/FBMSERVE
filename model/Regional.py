@@ -5,7 +5,7 @@ from ext import db, get_uuid
 class Regional(db.Model):
     __tablename__ = 'regional'
 
-    id = db.Column(db.String(32), primary_key=True, info='ID')
+    id = db.Column(db.String(32), primary_key=True, default=get_uuid(), info='ID')
     name = db.Column(db.String(16), info='地区数据名称')
     code = db.Column(db.String(32), info='简码')
     enname = db.Column(db.String(32), info='地区数据英文名称')

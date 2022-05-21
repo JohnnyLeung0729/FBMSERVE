@@ -5,7 +5,7 @@ from ext import db, get_uuid
 class Pboxtype(db.Model):
     __tablename__ = 'pboxtype'
 
-    id = db.Column(db.String(32), primary_key=True, info='ID')
+    id = db.Column(db.String(32), primary_key=True, default=get_uuid(), info='ID')
     code = db.Column(db.String(32), info='拣货箱类型编码')
     name = db.Column(db.String(32), info='拣货箱类型名称')
     active = db.Column(db.Integer, info='拣货箱状态')
