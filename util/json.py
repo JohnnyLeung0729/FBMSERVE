@@ -22,7 +22,7 @@ def to_json(self):
     dic = {}
     for c in self.__table__.columns:
         if str(c.type) == 'DATETIME':
-            dic[c.name] = getattr(self, c.name).strftime('%Y-%m-%d %H:%M:%S')
+            dic[c.name] = str(getattr(self, c.name))  # .strftime('%Y-%m-%d %H:%M:%S')
         else:
             dic[c.name] = getattr(self, c.name)
     return dic

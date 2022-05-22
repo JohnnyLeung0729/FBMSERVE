@@ -50,6 +50,7 @@ api.add_resource(DelCustomer, '/customer/del')
 
 class AddCustomer(Resource):
     def post(self):
+
         return {'code': 200, 'msg': 'ok', 'success': 'AddDepartment'}
 
 

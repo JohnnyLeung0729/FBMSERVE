@@ -23,6 +23,7 @@ class User(db.Model):
     active = db.Column(db.Integer, info='状态')
     memo = db.Column(db.String(255), info='备注')
     addtime = db.Column(db.DateTime, info='添加时间')
+    type = db.Column(db.String(32), info='用户类型')
 
     def __str__(self):
         return self.name

@@ -1,7 +1,7 @@
 from flask import Blueprint, request
 from flask_restful import Api, Resource
 
-from ext import db
+from ext import db, get_datetime_now
 from model.Department import Department
 from model.Language import Language
 from util.json import to_json, list_to_json
@@ -52,7 +52,19 @@ api.add_resource(DelLanguage, '/language/del')
 
 class AddLanguage(Resource):
     def post(self):
-        return {'code': 200, 'msg': 'ok', 'success': 'AddDepartment'}
+        l = request.get_json()
+        chinese = l['chinese']
+        english = l['english']
+
+        ll = Language()
+        ll.addtime = get_datetime_now()
+        ll.interkey = chinese
+        ll.chinese = chinese
+        ll.english = english
+
+        db.session.add(ll)
+        db.session.commit()
+        return {'code': 200, 'msg': 'ok', 'success': 'AddLanguage'}
 
 
 api.add_resource(AddLanguage, '/language/add')

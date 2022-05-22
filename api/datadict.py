@@ -61,7 +61,7 @@ class AddDatadict(Resource):
         print('pcodeis', di['pcode'])
         db.session.add(d)
         db.session.commit()
-        return {'code': 200, 'msg': 'ok', 'success': 'AddDepartment'}
+        return {'code': 200, 'msg': 'ok', 'success': 'AddDepartment', 'data': ''}
 
 
 api.add_resource(AddDatadict, '/datadict/add')

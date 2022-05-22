@@ -1,7 +1,7 @@
 from flask import Blueprint, request
 from flask_restful import Api, Resource
 
-from ext import db
+from ext import db, get_datetime_now
 from model.Department import Department
 from model.Post import Post
 from model.Role import Role
@@ -14,7 +14,27 @@ api = Api(role)
 
 class AddRole(Resource):
     def post(self):
-        return {'code': 200, 'msg': 'ok', 'success': 'AddDepartment'}
+        r = request.get_json()
+        name = r['name']
+        tag = r['tag']
+        sort = r['sort']
+        active = r['active']
+        memo = r['memo']
+        power = r['power']
+
+        rr = Role()
+        rr.addtime = get_datetime_now()
+        rr.name = name
+        rr.sort = sort
+        rr.memo = memo
+        rr.active = active
+        rr.power = power
+        rr.tag = tag
+
+        db.session.add(rr)
+        db.session.commit()
+
+        return {'code': 200, 'msg': 'ok', 'success': 'AddRole'}
 
 
 api.add_resource(AddRole, '/role/add')
