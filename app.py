@@ -1,3 +1,4 @@
+import config
 from flask import Flask, jsonify, abort
 from werkzeug.exceptions import HTTPException, default_exceptions
 
@@ -39,8 +40,9 @@ def JsonApp(app):
 
 app = Flask(__name__)
 app = JsonApp(app)
-app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://root:Ly818379@localhost:3306/fbmtai"
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+app.config.from_object(config)
+# app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://root:Ly818379@localhost:3306/fbmtai"
+# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 
 app.register_blueprint(api_sku_blueprint)
 app.register_blueprint(api_category_blueprint)
